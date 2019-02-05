@@ -13,6 +13,6 @@ public class Flying : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * Time.deltaTime);
+        transform.Translate(transform.right * -1f * Time.deltaTime);
     }
 }

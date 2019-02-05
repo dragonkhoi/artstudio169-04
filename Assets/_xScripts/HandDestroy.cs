@@ -17,11 +17,12 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-        if (photonView.ownerId == 1)
+        Debug.Log(photonView.ownerId);
+        if (photonView.ownerId == 0)
         {
             CreateObject();
         }
-        else if (photonView.ownerId == 2)
+        else if (photonView.ownerId == 1)
         {
             // BreakObject();
         }
@@ -34,13 +35,17 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (photonView.ownerId == 2)
+        if (collision.gameObject.name.Contains ("cube"))
         {
-            if (collision.relativeVelocity.magnitude > impactForce)
+            if (photonView.ownerId == 1)
             {
-                BreakObject(collision.transform.gameObject);
+                if (collision.relativeVelocity.magnitude > impactForce)
+                {
+                    BreakObject(collision.transform.gameObject);
+                }
             }
         }
+        
     }
 
     private void BreakObject(GameObject toDestroy)
