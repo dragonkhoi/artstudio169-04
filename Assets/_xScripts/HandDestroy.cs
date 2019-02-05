@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using VRTK;
-using Photon;
+using UnityEngine;
 
-public class HandActions : Photon.MonoBehaviour
+public class HandDestroy : MonoBehaviour
 {
+    public float impactForce;
     VRTK_ControllerEvents controllerEvents;
 
     // Start is called before the first frame update
@@ -17,14 +17,20 @@ public class HandActions : Photon.MonoBehaviour
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-        if (photonView.ownerId == 1)
+       BreakObject();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.relativeVelocity.magnitude > impactForce)
         {
-            CreateObject();
+            BreakObject();
         }
     }
 
-    private void CreateObject()
+    private void BreakObject()
     {
-        PhotonNetwork.Instantiate("AK_Cube", transform.position, transform.rotation, 0);
+        PhotonNetwork.Destroy(gameObject);
+        PhotonNetwork.Instantiate("Cube02", transform.position, transform.rotation, 0);
     }
 }
