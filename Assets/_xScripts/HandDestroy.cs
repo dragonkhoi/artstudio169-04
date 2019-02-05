@@ -23,7 +23,7 @@ public class HandDestroy : Photon.MonoBehaviour
         }
         else if (photonView.ownerId == 2)
         {
-            BreakObject();
+            // BreakObject();
         }
     }
 
@@ -34,15 +34,18 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.magnitude > impactForce)
+        if (photonView.ownerId == 2)
         {
-            BreakObject();
+            if (collision.relativeVelocity.magnitude > impactForce)
+            {
+                BreakObject(collision.transform.gameObject);
+            }
         }
     }
 
-    private void BreakObject()
+    private void BreakObject(GameObject toDestroy)
     {
-        PhotonNetwork.Destroy(gameObject);
+        PhotonNetwork.Destroy(toDestroy);
         PhotonNetwork.Instantiate("Cube02", transform.position, transform.rotation, 0);
     }
 }
