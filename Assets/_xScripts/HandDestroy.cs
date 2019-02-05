@@ -2,27 +2,35 @@
 using System.Collections.Generic;
 using VRTK;
 using UnityEngine;
+using System;
 
 public class HandDestroy : Photon.MonoBehaviour
 {
     public float impactForce;
     VRTK_ControllerEvents controllerEvents;
+    int playerId;
 
     // Start is called before the first frame update
     void Start()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
         controllerEvents.TriggerClicked += ControllerEvents_TriggerClicked;
+        playerId = Array.IndexOf(PhotonNetwork.playerList, PhotonNetwork.player);
+    }
+
+    void OnPhotonConnect()
+    {
+
     }
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
         Debug.Log(photonView.ownerId);
-        if (photonView.ownerId == 0)
+        if (playerId == 0)
         {
             CreateObject();
         }
-        else if (photonView.ownerId == 1)
+        else if (playerId == 1)
         {
             // BreakObject();
         }
@@ -31,19 +39,21 @@ public class HandDestroy : Photon.MonoBehaviour
     private void CreateObject()
     {
         GameObject cube = PhotonNetwork.Instantiate("cube01", transform.position, transform.rotation, 0);
-        cube.GetComponent<SpawnRandomColor>().SpawnRandom(Random.value, Random.value, Random.value);
+        cube.GetComponent<SpawnRandomColor>().SpawnRandom(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name.Contains ("cube"))
+        
+        Debug.Log("collided");
+        if (collision.gameObject.name.Contains ("cube01"))
         {
-            if (photonView.ownerId == 1)
+            Debug.Log("hit a cube, owner is: " + playerId);
+            if (playerId == 1)
             {
-                if (collision.relativeVelocity.magnitude > impactForce)
-                {
-                    BreakObject(collision.transform.gameObject);
-                }
+                Debug.Log("i am owner 1");
+                 BreakObject(collision.transform.gameObject);
+      
             }
         }
         
