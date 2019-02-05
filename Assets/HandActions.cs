@@ -17,7 +17,10 @@ public class HandActions : Photon.MonoBehaviour
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-        CreateObject();
+        if (photonView.ownerId == 1)
+        {
+            CreateObject();
+        }
     }
 
     private void CreateObject()
