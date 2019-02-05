@@ -70,7 +70,7 @@ public class HandDestroy : Photon.MonoBehaviour
     private void BreakObject(GameObject toDestroy)
     {
         Color cubeColor = toDestroy.GetComponent<Renderer>().material.color;
-        PhotonNetwork.Destroy(toDestroy);
+        toDestroy.GetComponent<kill>().DestroyTheCube();
         GameObject newCube = PhotonNetwork.Instantiate("Cube02", transform.position, transform.rotation, 0);
         newCube.GetComponent<SetChildrenColor>().SetColorOfChildren(cubeColor.r, cubeColor.g, cubeColor.b);
     }

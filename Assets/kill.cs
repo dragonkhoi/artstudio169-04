@@ -18,8 +18,20 @@ public class kill : Photon.MonoBehaviour
         timer += Time.deltaTime;
         if (timer > lifespan)
         {
-            PhotonNetwork.Destroy(this.gameObject);
+            DestroyTheCube();
         }
 
+    }
+
+    public void DestroyTheCube()
+    {
+        photonView.RPC("DestroyObject", PhotonTargets.MasterClient);
+
+    }
+
+    [PunRPC]
+    public void DestroyObject()
+    {
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }
