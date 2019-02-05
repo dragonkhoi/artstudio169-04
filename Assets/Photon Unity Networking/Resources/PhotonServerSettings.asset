@@ -47,4 +47,6 @@ MonoBehaviour:
   - SetPanoramaFromObject
   - SpawnAvatar
   - TaggedPlayer
+  - SetRandomColor
+  - SetColor
   DisableAutoOpenWizard: 1

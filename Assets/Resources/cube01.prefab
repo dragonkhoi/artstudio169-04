@@ -66,6 +66,18 @@ MonoBehaviour:
   angularVelocity: 1
   useLocalValues: 1
   onChangeOnly: 1
+--- !u!114 &3072665756725086576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601768755184550268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fdf434f32775c944a850961e081d4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4592085104236046726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +105,7 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &3072665756725086576
+--- !u!114 &8367844033352183676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5601768755184550268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fdf434f32775c944a850961e081d4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 785b4b84aefa5a149a1e233463bd4b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5601768755184650204

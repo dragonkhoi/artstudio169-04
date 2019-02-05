@@ -30,7 +30,8 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void CreateObject()
     {
-        PhotonNetwork.Instantiate("cube01", transform.position, transform.rotation, 0);
+        GameObject cube = PhotonNetwork.Instantiate("cube01", transform.position, transform.rotation, 0);
+        cube.GetComponent<SpawnRandomColor>().SpawnRandom(Random.value, Random.value, Random.value);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,7 +51,9 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void BreakObject(GameObject toDestroy)
     {
+        Color cubeColor = toDestroy.GetComponent<Renderer>().material.color;
         PhotonNetwork.Destroy(toDestroy);
-        PhotonNetwork.Instantiate("Cube02", transform.position, transform.rotation, 0);
+        GameObject newCube = PhotonNetwork.Instantiate("Cube02", transform.position, transform.rotation, 0);
+        newCube.GetComponent<SetChildrenColor>().SetColorOfChildren(cubeColor.r, cubeColor.g, cubeColor.b);
     }
 }
