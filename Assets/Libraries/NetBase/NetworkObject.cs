@@ -31,6 +31,7 @@
             if (rbody != null) {
                 cipols[1] = new ComponentInterpolator(this, rbody);
             }
+            Debug.Log("owner id: " + photonView.ownerId);
         }
 
         void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
