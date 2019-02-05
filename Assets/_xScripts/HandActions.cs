@@ -25,6 +25,6 @@ public class HandActions : Photon.MonoBehaviour
 
     private void CreateObject()
     {
-        PhotonNetwork.Instantiate("AK_Cube", transform.position, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("AK_Cube", transform.position, transform.rotation, 0);
     }
 }
