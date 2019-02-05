@@ -107,7 +107,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!114 &4183534380503219858
 MonoBehaviour:
@@ -277,7 +277,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!54 &1393619144835085220
 Rigidbody:
@@ -327,7 +327,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!114 &5995336473413570766
 MonoBehaviour:
@@ -437,7 +437,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!114 &1863058486129988361
 MonoBehaviour:
@@ -547,7 +547,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!114 &3486500040078418218
 MonoBehaviour:
@@ -717,7 +717,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!54 &7375645893237808733
 Rigidbody:
@@ -767,7 +767,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!114 &7145493419916467426
 MonoBehaviour:
@@ -937,7 +937,7 @@ MonoBehaviour:
   scale: 0
   velocity: 1
   angularVelocity: 1
-  useLocalValues: 1
+  useLocalValues: 0
   onChangeOnly: 1
 --- !u!1001 &851024679072728953
 PrefabInstance:
@@ -949,6 +949,38 @@ PrefabInstance:
     - target: {fileID: 100016, guid: 353d6111281b7fd489356b026f83687d, type: 3}
       propertyPath: m_Name
       value: Cube02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 353d6111281b7fd489356b026f83687d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 353d6111281b7fd489356b026f83687d, type: 3}
       propertyPath: m_LocalPosition.x
