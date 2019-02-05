@@ -34,11 +34,11 @@ public class HandDestroy : Photon.MonoBehaviour
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
         Debug.Log("player id click :" + PhotonNetwork.player.ID);
-        if (PhotonNetwork.player.ID == 2)
+        if (PhotonNetwork.player.ID % 2 == 0)
         {
             CreateObject();
         }
-        else if (PhotonNetwork.player.ID == 1)
+        else if (PhotonNetwork.player.ID % 2 == 1)
         {
             // BreakObject();
         }
@@ -57,7 +57,7 @@ public class HandDestroy : Photon.MonoBehaviour
         if (collision.gameObject.name.Contains ("cube01"))
         {
             Debug.Log("hit a cube, owner is: " + PhotonNetwork.player.ID);
-            if (PhotonNetwork.player.ID == 1)
+            if (PhotonNetwork.player.ID % 2 == 1)
             {
                 Debug.Log("i am owner 1");
                  BreakObject(collision.transform.gameObject);
