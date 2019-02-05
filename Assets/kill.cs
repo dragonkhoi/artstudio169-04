@@ -25,13 +25,14 @@ public class kill : Photon.MonoBehaviour
 
     public void DestroyTheCube()
     {
-        photonView.RPC("DestroyObject", PhotonTargets.MasterClient);
+        photonView.RPC("DestroyObject", PhotonTargets.All);
 
     }
 
     [PunRPC]
     public void DestroyObject()
     {
-        PhotonNetwork.Destroy(this.gameObject);
+        // PhotonNetwork.Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
