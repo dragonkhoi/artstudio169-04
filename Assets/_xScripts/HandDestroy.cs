@@ -24,6 +24,7 @@ public class HandDestroy : Photon.MonoBehaviour
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
         controllerEvents.TriggerClicked += ControllerEvents_TriggerClicked;
         playerId = Array.IndexOf(PhotonNetwork.playerList, PhotonNetwork.player);
+        
     }
 
     void OnPhotonConnect()
