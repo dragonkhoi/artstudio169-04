@@ -10,6 +10,14 @@ public class HandDestroy : Photon.MonoBehaviour
     VRTK_ControllerEvents controllerEvents;
     int playerId;
 
+    public void SetPlayer()
+    {
+        foreach(PhotonPlayer p in PhotonNetwork.playerList)
+        {
+            Debug.Log("PLAYEER ID: " + p.ID.ToString());
+        }
+        playerId = Array.IndexOf(PhotonNetwork.playerList, PhotonNetwork.player);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +33,12 @@ public class HandDestroy : Photon.MonoBehaviour
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-        Debug.Log(photonView.ownerId);
-        if (playerId == 0)
+        Debug.Log("player id click :" + PhotonNetwork.player.ID);
+        if (PhotonNetwork.player.ID == 2)
         {
             CreateObject();
         }
-        else if (playerId == 1)
+        else if (PhotonNetwork.player.ID == 1)
         {
             // BreakObject();
         }
@@ -48,8 +56,8 @@ public class HandDestroy : Photon.MonoBehaviour
         Debug.Log("collided");
         if (collision.gameObject.name.Contains ("cube01"))
         {
-            Debug.Log("hit a cube, owner is: " + playerId);
-            if (playerId == 1)
+            Debug.Log("hit a cube, owner is: " + PhotonNetwork.player.ID);
+            if (PhotonNetwork.player.ID == 1)
             {
                 Debug.Log("i am owner 1");
                  BreakObject(collision.transform.gameObject);
