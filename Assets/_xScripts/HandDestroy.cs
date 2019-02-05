@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using VRTK;
 using UnityEngine;
 
-public class HandDestroy : MonoBehaviour
+public class HandDestroy : Photon.MonoBehaviour
 {
     public float impactForce;
     VRTK_ControllerEvents controllerEvents;
@@ -17,7 +17,19 @@ public class HandDestroy : MonoBehaviour
 
     private void ControllerEvents_TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-       BreakObject();
+        if (photonView.ownerId == 1)
+        {
+            CreateObject();
+        }
+        else if (photonView.ownerId == 2)
+        {
+            BreakObject();
+        }
+    }
+
+    private void CreateObject()
+    {
+        PhotonNetwork.Instantiate("cube01", transform.position, transform.rotation, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
